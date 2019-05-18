@@ -4,7 +4,7 @@ var pimsDB;
 function initDatabase()
 {
 	//                                     YYYYMMDDHHMM
-	var request = indexedDB.open("pimsDB", 201903291219);
+	var request = indexedDB.open("pimsDB", 201905180128);
 	
 	request.onsuccess = function(e)
 	{
@@ -67,8 +67,8 @@ function upgradeDatabase(pimsDB)
 	populateJsonObject("locations");
 	populateJsonObject("drugs");
 	populateJsonObject("directions");
-	populateJsonObject("itemDirections");
-	populateJsonObject("itemBnfDirections");
+	populateJsonObject("itemdirections");
+	populateJsonObject("itembnfdirections");
 	populateJsonObject("approvedNames");
 	populateJsonObject("popCodes");
 	populateJsonObject("prescribers");
@@ -80,8 +80,8 @@ function upgradeDatabase(pimsDB)
 	deleteObjectStore("locations");
 	deleteObjectStore("drugs");
 	deleteObjectStore("directions");
-	deleteObjectStore("itemDirections");
-	deleteObjectStore("itemBnfDirections");
+    deleteObjectStore("itemdirections");
+	deleteObjectStore("itembnfdirections");
 	deleteObjectStore("approvedNames");
 	deleteObjectStore("popCodes");
 	deleteObjectStore("prescribers");
