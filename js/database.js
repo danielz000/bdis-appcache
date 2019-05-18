@@ -4,7 +4,7 @@ var pimsDB;
 function initDatabase()
 {
 	//                                     YYYYMMDDHHMM
-	var request = indexedDB.open("pimsDB", 201905180128);
+	var request = indexedDB.open("pimsDB", 201905180135);
 	
 	request.onsuccess = function(e)
 	{

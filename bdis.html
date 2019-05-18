@@ -1,76 +1,71 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" manifest="bdis.appcache">
-	<head>
-		<title>BDIS - 2019-03-29 v03</title>
-		<meta charset="UTF-8" />
-		
-		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-		
-		<script type="text/javascript" src="js/database.js"></script>
-		<script type="text/javascript" src="js/bdis.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
-		<script type="text/javascript" src="js/drugsearch.js"></script>
-		<script type="text/javascript" src="js/prescribersearch.js"></script>
-		<script type="text/javascript" src="js/wardsearch.js"></script>
-		
-		<link rel="stylesheet" type="text/css" href="css/bdis.css"></link>
-		
-		<script type="text/javascript">
-			
-			$(document).ready
-			(
-				function()
-				{
-					if (location.href.indexOf("isopen=yes") >= 0)
-					{
-						var d = new Date();
-						var connectedScreen = "";
-						connectedScreen += "     UCL HOSPITALS PHARMACY COMPUTER SYSTEM\n\n";
-						connectedScreen += "     " + weekdays[d.getDay()].substr(0, 3).toUpperCase() + " " + day + "." + month + "." + year.substr(2, 2) + "   ";
-						connectedScreen += d.toLocaleTimeString() + "          LINE /xxx/yyyy     JOB 123\n\n"
-						connectedScreen += "Terminal: BACKUP DISPENSING [BD]\n\n";
-						$("div#connected pre").text(connectedScreen);
-						
-						$(document).bind("keydown", document_keydown);
-						$("#login_password").bind("keypress", login_password_keypress);
-						$("#login_password")[0].focus();
-						initDatabase();
-						//sendXmlToLabelPrinter(createPatientReceiptXML());
-					}
-					else
-					{
-						window.open("bdis.html?isopen=yes","_blank","height=600,width=850");
-						window.open('','_self','');
-						window.close();
-					}
-				}	
-			);
-			
-			$(document).keypress
-			(
-				function(e)
-				{					
-					$("#login_password")[0].focus();
-					$(document).unbind("keypress");
-				}	
-			);
-			
-			//testing out patient receipts
-			function createPatientReceiptXML()
-			{				
-				var xmltemplate = 
-				"<label type=\"template\" templatename=\"pimsoutpatientreceipt\">" +
-					"<printQuantity>1</printQuantity>" +
-					"<fields>" +
-					"</fields>" +
-				"</label>";
-				
-				return xmltemplate;
-			}
-			
-		</script>
-	</head>
+<head>
+    <title>BDIS - 2019-05-18 v02</title>
+    <meta charset="UTF-8" />
+
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+
+    <script type="text/javascript" src="js/database.js"></script>
+    <script type="text/javascript" src="js/bdis.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/drugsearch.js"></script>
+    <script type="text/javascript" src="js/prescribersearch.js"></script>
+    <script type="text/javascript" src="js/wardsearch.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/bdis.css"></link>
+
+    <script type="text/javascript">
+
+        $(document).ready
+            (
+                function () {
+                    if (location.href.indexOf("isopen=yes") >= 0) {
+                        var d = new Date();
+                        var connectedScreen = "";
+                        connectedScreen += "     UCL HOSPITALS PHARMACY COMPUTER SYSTEM\n\n";
+                        connectedScreen += "     " + weekdays[d.getDay()].substr(0, 3).toUpperCase() + " " + day + "." + month + "." + year.substr(2, 2) + "   ";
+                        connectedScreen += d.toLocaleTimeString() + "          LINE /xxx/yyyy     JOB 123\n\n"
+                        connectedScreen += "Terminal: BACKUP DISPENSING [BD]\n\n";
+                        $("div#connected pre").text(connectedScreen);
+
+                        $(document).bind("keydown", document_keydown);
+                        $("#login_password").bind("keypress", login_password_keypress);
+                        $("#login_password")[0].focus();
+                        initDatabase();
+                        //sendXmlToLabelPrinter(createPatientReceiptXML());
+                    }
+                    else {
+                        window.open("bdis.html?isopen=yes", "_blank", "height=600,width=850");
+                        window.open('', '_self', '');
+                        window.close();
+                    }
+                }
+            );
+
+        $(document).keypress
+            (
+                function (e) {
+                    $("#login_password")[0].focus();
+                    $(document).unbind("keypress");
+                }
+            );
+
+        //testing out patient receipts
+        function createPatientReceiptXML() {
+            var xmltemplate =
+                "<label type=\"template\" templatename=\"pimsoutpatientreceipt\">" +
+                "<printQuantity>1</printQuantity>" +
+                "<fields>" +
+                "</fields>" +
+                "</label>";
+
+            return xmltemplate;
+        }
+
+    </script>
+</head>
 	
 	<body>
 	
